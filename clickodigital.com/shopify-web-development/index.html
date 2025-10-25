@@ -1778,18 +1778,10 @@ Sent from clickodigital.com contact form
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "tvkyc19xn8");
 </script>
-<script>
-window.salesmateSettings = {
-	workspace_id: "be701248-1063-4b4f-bfc5-1d0313a35538", 
-	app_key:"5d4d8680-7dc0-11f0-a0da-2158440ed60a", 
-	tenant_id:"clickodigital.salesmate.io", 
-	channel_id:"e37a1c4e-1eb3-4b17-ae6b-ab8a2170898e", 
-	widget_style:"floating"
-  }
-</script>
-<script>
-!function(e,t,a,i,d,n,o){e.Widget=i,e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(arguments)},n=t.createElement(a),o=t.getElementsByTagName(a)[0],n.id=i,n.src=d,window._salesmate_widget_script_url=d,n.async=1,o.parentNode.insertBefore(n,o)}(window,document,"script","loadwidget", "https://clickodigital.salesmate.io/messenger-platform/messenger-platform-main.js"),loadwidget("init",{}),loadwidget("load_widget","Widget Loading...!");
-</script>
+
+
+
+
 <script>
 var url = 'https://cdn.waplus.io/waplus-crm/settings/ossembed.js';
 var s = document.createElement('script');
@@ -1814,13 +1806,39 @@ var options = {
 }
 s.onload = function() {
 CreateWhatsappBtn(options);
+  
+  // Add Google Analytics tracking for WhatsApp clicks
+  setTimeout(function() {
+    var whatsappBtn = document.querySelector('.waplus-whatsapp-button, [class*="waplus"], [class*="whatsapp"]');
+    if (whatsappBtn) {
+      whatsappBtn.addEventListener('click', function() {
+        // Track WhatsApp button click in Google Analytics
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'whatsapp_click', {
+            'event_category': 'engagement',
+            'event_label': 'WhatsApp Chat Button',
+            'value': 1
+          });
+        }
+        
+        // Also track in dataLayer for GTM if present
+        if (typeof dataLayer !== 'undefined') {
+          dataLayer.push({
+            'event': 'whatsapp_click',
+            'event_category': 'engagement',
+            'event_label': 'WhatsApp Chat Button'
+          });
+        }
+      });
+    }
+  }, 2000); // Wait 2 seconds for button to load
 };
 var x = document.getElementsByTagName('script')[0];
 x.parentNode.insertBefore(s, x);
 </script>
 <style>
-/* Chat bubble positioning and styling */
-.salesmate-widget, .waplus-whatsapp-button {
+/* WhatsApp button positioning and styling */
+.waplus-whatsapp-button, [class*="waplus"], [class*="whatsapp"] {
   position: fixed !important;
   bottom: 20px !important;
   right: 20px !important;
@@ -1830,25 +1848,11 @@ x.parentNode.insertBefore(s, x);
   box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
 }
 
-/* Ensure WhatsApp button is positioned correctly */
-.waplus-whatsapp-button {
-  margin-bottom: 80px !important; /* Space for Salesmate above */
-}
-
-/* Salesmate widget positioning */
-.salesmate-widget {
-  margin-bottom: 0 !important;
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .salesmate-widget, .waplus-whatsapp-button {
+  .waplus-whatsapp-button, [class*="waplus"], [class*="whatsapp"] {
     bottom: 15px !important;
     right: 15px !important;
-  }
-  
-  .waplus-whatsapp-button {
-    margin-bottom: 70px !important;
   }
 }
 </style>
