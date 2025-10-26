@@ -1,0 +1,28 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://clickodigital.com/sitemap.xml
+
+# Disallow admin and system files
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/uploads/
+Disallow: /wp-json/
+Disallow: /xmlrpc.php
+Disallow: /feed/
+Disallow: /comments/
+Disallow: /category/
+Disallow: /*.backup
+Disallow: /_downloads.html
+
+# Allow important directories
+Allow: /wp-content/themes/
+Allow: /wp-content/plugins/
+Allow: /assets/
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# Crawl delay (optional)
+Crawl-delay: 1
