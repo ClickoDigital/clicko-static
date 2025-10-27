@@ -457,6 +457,22 @@ the Experts</h1><p id="brxe-rqiijt" class="brxe-text-basic">Your Partners in Dig
 </script>
 <div data-popup-id="7497" class="brx-popup brxe-popup-7497 hide" data-popup-disable-auto-focus="1" data-popup-scroll-to-top="1"><div class="brx-popup-content brxe-container"><section id="brxe-nldzjs" class="brxe-section"><img src="../wp-content/uploads/2024/12/x-circle-svgrepo-com.svg" class="brxe-image css-filter size-full" alt="" id="popup-hide" data-interactions="[{&quot;id&quot;:&quot;peiqrd&quot;,&quot;trigger&quot;:&quot;click&quot;,&quot;action&quot;:&quot;hide&quot;,&quot;target&quot;:&quot;popup&quot;,&quot;templateId&quot;:&quot;7497&quot;}]" data-interaction-id="7605f2" decoding="async" loading="lazy" /><div id="brxe-rpxsug" class="brxe-container"><div id="brxe-nwdwda" class="brxe-block"><div id="brxe-bwwtbh" class="brxe-block"><h3 id="brxe-rbanlt" class="brxe-heading">Let’s Do Great Things Together</h3><div id="brxe-ubeztq" class="brxe-block">		<form id="brxe-qrjnfa" data-script-id="qrjnfa" class="brxe-form" method="post" data-element-id="qrjnfa">
 			
+				<!-- Spam Protection Fields -->
+				<div style="display: none !important; visibility: hidden; opacity: 0; position: absolute; left: -9999px;" aria-hidden="true">
+					<label for="website_url">Website URL (leave blank):</label>
+					<input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off">
+					
+					<label for="phone_alt">Phone Alt (leave blank):</label>
+					<input type="text" id="phone_alt" name="phone_alt" tabindex="-1" autocomplete="off">
+					
+					<label for="company_name">Company Name (leave blank):</label>
+					<input type="text" id="company_name" name="company_name" tabindex="-1" autocomplete="off">
+				</div>
+				
+				<!-- Time-based validation -->
+				<input type="hidden" name="form_timestamp" id="form_timestamp" value="">
+				<input type="hidden" name="form_token" id="form_token" value="">
+				
 				<div class="form-group" role="group">
 				<label for="form-field-1ffcf7">Full Name*</label><input id="form-field-1ffcf7" name="form-field-1314f5" spellcheck="false" type="text" value required>
 				
@@ -1850,5 +1866,119 @@ CreateWhatsappBtn(options);
 };
 var x = document.getElementsByTagName('script')[0];
 x.parentNode.insertBefore(s, x);
+</script>
+
+<script>
+// Spam Protection Script
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize form timestamps and tokens
+    const forms = document.querySelectorAll('form');
+    
+    forms.forEach(function(form) {
+        // Set form timestamp when page loads
+        const timestampField = form.querySelector('input[name="form_timestamp"]');
+        if (timestampField) {
+            timestampField.value = Date.now();
+        }
+        
+        // Generate form token
+        const tokenField = form.querySelector('input[name="form_token"]');
+        if (tokenField) {
+            tokenField.value = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+        }
+        
+        // Add form submission validation
+        form.addEventListener('submit', function(e) {
+            // Check honeypot fields
+            const honeypotFields = form.querySelectorAll('input[name="website_url"], input[name="phone_alt"], input[name="company_name"]');
+            let honeypotFilled = false;
+            
+            honeypotFields.forEach(function(field) {
+                if (field.value.trim() !== '') {
+                    honeypotFilled = true;
+                }
+            });
+            
+            if (honeypotFilled) {
+                e.preventDefault();
+                console.log('Spam detected: Honeypot fields filled');
+                return false;
+            }
+            
+            // Check time-based validation (minimum 3 seconds)
+            const timestampField = form.querySelector('input[name="form_timestamp"]');
+            if (timestampField) {
+                const formStartTime = parseInt(timestampField.value);
+                const currentTime = Date.now();
+                const timeDiff = currentTime - formStartTime;
+                
+                if (timeDiff < 3000) { // Less than 3 seconds
+                    e.preventDefault();
+                    console.log('Spam detected: Form submitted too quickly');
+                    alert('Please take a moment to review your information before submitting.');
+                    return false;
+                }
+            }
+            
+            // Check for suspicious patterns in form data
+            const nameField = form.querySelector('input[name="form-field-1314f5"]');
+            const emailField = form.querySelector('input[name="form-field-ee3ce5"]');
+            const messageField = form.querySelector('textarea[name="form-field-54f2cc"]');
+            
+            if (nameField && emailField && messageField) {
+                const name = nameField.value.toLowerCase();
+                const email = emailField.value.toLowerCase();
+                const message = messageField.value.toLowerCase();
+                
+                // Check for spam keywords
+                const spamKeywords = ['viagra', 'casino', 'lottery', 'winner', 'congratulations', 'click here', 'free money', 'bitcoin', 'crypto', 'investment', 'loan', 'debt', 'credit'];
+                
+                let spamDetected = false;
+                spamKeywords.forEach(function(keyword) {
+                    if (name.includes(keyword) || email.includes(keyword) || message.includes(keyword)) {
+                        spamDetected = true;
+                    }
+                });
+                
+                if (spamDetected) {
+                    e.preventDefault();
+                    console.log('Spam detected: Suspicious keywords found');
+                    alert('Your message contains suspicious content. Please review and try again.');
+                    return false;
+                }
+                
+                // Check for excessive repetition
+                if (message.length > 0) {
+                    const words = message.split(' ');
+                    const wordCount = {};
+                    words.forEach(function(word) {
+                        if (word.length > 3) {
+                            wordCount[word] = (wordCount[word] || 0) + 1;
+                        }
+                    });
+                    
+                    let maxRepetition = 0;
+                    Object.values(wordCount).forEach(function(count) {
+                        if (count > maxRepetition) {
+                            maxRepetition = count;
+                        }
+                    });
+                    
+                    if (maxRepetition > 5) {
+                        e.preventDefault();
+                        console.log('Spam detected: Excessive word repetition');
+                        alert('Your message contains excessive repetition. Please review and try again.');
+                        return false;
+                    }
+                }
+            }
+            
+            // Update timestamp on successful validation
+            if (timestampField) {
+                timestampField.value = Date.now();
+            }
+        });
+    });
+});
 </script>
 </body></html>
