@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicko Digital | Award-Winning Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../wp-content/plugins/bricks-advanced-themer/assets/css/advanced-themer.min.css?ver=1753782317" media="all" />
+    <link rel="stylesheet" href="../wp-content/themes/bricks/assets/css/frontend-layer.min.css?ver=1753782317" media="all" />
+    <link rel="stylesheet" href="../wp-content/themes/bricks/assets/css/libs/photoswipe-layer.min.css?ver=1753782317" media="all" />
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(90deg, #7136da, #ff0080);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Video Popup Styles */
+        #video-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+        .video-popup-content {
+            position: relative;
+            width: 90%;
+            max-width: 1000px;
+            aspect-ratio: 16/9;
+            background: #000;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .video-popup-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            color: #fff;
+            font-size: 30px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-weight: bold;
+        }
+        #video-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .bg-dark-section { background-color: #0f172a; }
+        .bg-purple-gradient {
+            background: linear-gradient(135deg, #7136da 0%, #a855f7 100%);
+        }
+        .card-shadow { box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1); }
+        .form-input {
+            @apply w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all;
+        }
+        /* Default Bricks Container */
+        .brxe-container {
+            width: 1440px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            max-width: 95%;
+        }
+        /* Site's original heading styles */
+        .brands-we-work__heading-block.brxe-block { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 40px; }
+        .section-heading.brxe-heading { 
+             text-align: center; 
+             color: #24223e; 
+             font-size: 34px; 
+             font-weight: 900; 
+             line-height: 1.41; 
+             text-transform: capitalize; 
+             margin-top: 16px; 
+             margin-right: auto; 
+             margin-left: auto; 
+             max-width: 700px; 
+         }
+        .section-description.brxe-text-basic { font-size: 16px; color: #7136da; font-weight: 700; line-height: 1.5; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        
+        /* About Us Section Styles from about-us page */
+        #brxe-dytdzy { padding: 80px 0; }
+        #brxe-gwdvpc { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; }
+        .hero-section__heading.brxe-heading { font-size: 64px; font-weight: 900; line-height: 1.1; color: #000; margin-bottom: 25px; }
+        .hero-section__description.brxe-text-basic { font-size: 18px; line-height: 1.6; color: #444; margin-bottom: 35px; }
+        #brxe-qevukg { display: flex; align-items: center; gap: 20px; }
+        #brxe-annfxm.brxe-button { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: linear-gradient(90deg, #7136da, #ff0080); color: #fff; font-size: 20px; transition: transform 0.3s; border: none; }
+        #brxe-annfxm:hover { transform: scale(1.1); }
+        #brxe-zkeybn { font-weight: 700; color: #24223e; font-size: 16px; text-decoration: none; }
+        #brxe-kjectn { border-radius: 30px; box-shadow: 0 30px 60px -15px rgba(0,0,0,0.15); width: 100%; height: auto; }
+        
+        @media (max-width: 991px) {
+            #brxe-gwdvpc { grid-template-columns: 1fr; gap: 40px; }
+            .hero-section__heading.brxe-heading { font-size: 42px; }
+        }
+
+        /* Brands Section Styles */
+        .brands-we-work { 
+            background-image: url(../wp-content/uploads/2024/08/Vector6.svg); 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-position: bottom center; 
+        }
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+        .marquee-content {
+            display: inline-flex;
+            animation: marquee 30s linear infinite;
+        }
+        .marquee-content:hover {
+            animation-play-state: paused;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .brand-logo {
+            flex: 0 0 auto;
+            width: 150px;
+            margin: 0 25px;
+            /* opacity: 0.6; */
+            transition: all 0.3s;
+        }
+        .brand-logo:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <img src="../wp-content/uploads/2024/11/header-logo-new.png" alt="Clicko Digital" class="h-10">
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <nav class="flex space-x-6 text-sm font-semibold">
+                    <a href="#" class="text-purple-600">Home</a>
+                    <a href="#" class="hover:text-purple-600 transition-colors">About Us</a>
+                    <a href="#" class="hover:text-purple-600 transition-colors">Services</a>
+                    <a href="#" class="hover:text-purple-600 transition-colors">Portfolio</a>
+                    <a href="#" class="hover:text-purple-600 transition-colors">Blog</a>
+                </nav>
+                <button class="bg-purple-600 text-white px-6 py-2.5 rounded-full font-bold hover:bg-purple-700 transition-all shadow-lg shadow-purple-200">
+                    Contact Sales
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-dark-section text-white relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-purple-900/20 to-transparent pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-600/10 blur-[100px] rounded-full"></div>
+
+        <div class="brxe-container">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Left Side: Content & Stats -->
+                <div>
+                    <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight">
+                        UAE's Award-Winning <br>
+                        <span class="gradient-text">AI Agency</span>
+                    </h1>
+                    <p class="text-gray-400 text-lg mb-10 max-w-xl">
+                        We help brands scale with cutting-edge AI solutions, modern web experiences, and data-driven marketing.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-purple-400">
+                                <i class="fas fa-briefcase text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold">12+</h3>
+                                <p class="text-gray-500 text-sm">Years Experience</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-purple-400">
+                                <i class="fas fa-rocket text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold">1200+</h3>
+                                <p class="text-gray-500 text-sm">Projects Completed</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-purple-400">
+                                <i class="fas fa-users text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold">150+</h3>
+                                <p class="text-gray-500 text-sm">Experts</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-purple-400">
+                                <i class="fas fa-smile text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold">2000+</h3>
+                                <p class="text-gray-500 text-sm">Happy Clients</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Form -->
+                <div class="bg-white rounded-3xl p-8 shadow-2xl text-gray-900 border border-gray-100">
+                    <h2 class="text-2xl font-bold mb-2">Let's Get Started Now</h2>
+                    <p class="text-gray-500 mb-8">Fill the form and we'll get back to you within 24 hours.</p>
+                    
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <input type="text" placeholder="First Name" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all">
+                            <input type="text" placeholder="Last Name" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all">
+                        </div>
+                        <input type="email" placeholder="Email Address" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all">
+                        <input type="tel" placeholder="Phone Number" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all">
+                        
+                        <div class="space-y-3">
+                            <p class="font-semibold text-sm">What is your project?</p>
+                            <div class="grid grid-cols-2 gap-3">
+                                <label class="flex items-center space-x-2 text-sm text-gray-600 cursor-pointer">
+                                    <input type="checkbox" class="w-4 h-4 text-purple-600 border-gray-300 rounded">
+                                    <span>Web Development</span>
+                                </label>
+                                <label class="flex items-center space-x-2 text-sm text-gray-600 cursor-pointer">
+                                    <input type="checkbox" class="w-4 h-4 text-purple-600 border-gray-300 rounded">
+                                    <span>App Development</span>
+                                </label>
+                                <label class="flex items-center space-x-2 text-sm text-gray-600 cursor-pointer">
+                                    <input type="checkbox" class="w-4 h-4 text-purple-600 border-gray-300 rounded">
+                                    <span>Digital Marketing</span>
+                                </label>
+                                <label class="flex items-center space-x-2 text-sm text-gray-600 cursor-pointer">
+                                    <input type="checkbox" class="w-4 h-4 text-purple-600 border-gray-300 rounded">
+                                    <span>AI Solution</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-green-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-green-700 transition-all mt-4 shadow-lg shadow-green-100">
+                            Get Your Free Audit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section (from home page brxe-cqyjll) -->
+    <div id="brxe-cqyjll" class="brxe-template">
+        <section id="brxe-e487c0" class="brxe-section brands-we-work py-20">
+            <div id="brxe-74753a" class="brxe-container brands-we-work__container max-w-7xl mx-auto px-4">
+                <div id="brxe-5c2466" class="brxe-block brands-we-work__heading-block">
+                    <p id="brxe-014e21" class="brxe-text-basic section-description brands-we-work__section-description">Brands We Work With</p>
+                    <h2 id="brxe-af5983" class="brxe-heading section-heading brands-we-work__section-heading">Proud To Work With Leading Brands Across Industries</h2>
+                </div>
+                <div id="brxe-0aa085" class="brxe-div brands-we-work__carousel-block overflow-hidden">
+                    <div id="brxe-848280" class="marquee-container">
+                        <div class="marquee-content">
+                            <!-- Logos from index.html -->
+                            <img src="../wp-content/uploads/2025/05/Group-59-1.png" class="brand-logo" alt="Brand 1">
+                            <img src="../wp-content/uploads/2025/05/Group-60-1.png" class="brand-logo" alt="Brand 2">
+                            <img src="../wp-content/uploads/2025/05/Group-62-1.png" class="brand-logo" alt="Brand 3">
+                            <img src="../wp-content/uploads/2025/05/Group-63-1.png" class="brand-logo" alt="Brand 4">
+                            <img src="../wp-content/uploads/2025/05/Group-65-1.png" class="brand-logo" alt="Brand 5">
+                            <img src="../wp-content/uploads/2025/05/Group-66-1.png" class="brand-logo" alt="Brand 6">
+                            <img src="../wp-content/uploads/2025/05/Group-68-1.png" class="brand-logo" alt="Brand 7">
+                            <img src="../wp-content/uploads/2025/05/Group-69-1.png" class="brand-logo" alt="Brand 8">
+                            <img src="../wp-content/uploads/2025/05/Group-70-1.png" class="brand-logo" alt="Brand 9">
+                            <img src="../wp-content/uploads/2025/05/Group-71-1.png" class="brand-logo" alt="Brand 10">
+                            <img src="../wp-content/uploads/2025/05/Group-73-1.png" class="brand-logo" alt="Brand 11">
+                            <img src="../wp-content/uploads/2025/05/Group-74-1.png" class="brand-logo" alt="Brand 12">
+                            <img src="../wp-content/uploads/2025/05/Group-75-1.png" class="brand-logo" alt="Brand 13">
+                            <img src="../wp-content/uploads/2025/05/Group-76-1.png" class="brand-logo" alt="Brand 14">
+                            <img src="../wp-content/uploads/2025/05/Group-78-1.png" class="brand-logo" alt="Brand 15">
+                            <img src="../wp-content/uploads/2025/05/Group-81-1.png" class="brand-logo" alt="Brand 16">
+                            <img src="../wp-content/uploads/2025/05/Group-82-1.png" class="brand-logo" alt="Brand 17">
+                            <img src="../wp-content/uploads/2025/05/Group-83-1.png" class="brand-logo" alt="Brand 18">
+                            <img src="../wp-content/uploads/2025/05/Group-85-1.png" class="brand-logo" alt="Brand 19">
+                            <img src="../wp-content/uploads/2025/05/Group-86-1.png" class="brand-logo" alt="Brand 20">
+                            <img src="../wp-content/uploads/2025/05/Group-84.png" class="brand-logo" alt="Brand 21">
+                            <img src="../wp-content/uploads/2025/05/Group-67.png" class="brand-logo" alt="Brand 22">
+                            <img src="../wp-content/uploads/2025/05/Group-72.png" class="brand-logo" alt="Brand 23">
+                            <img src="../wp-content/uploads/2025/05/Group-77.png" class="brand-logo" alt="Brand 24">
+                            <img src="../wp-content/uploads/2025/05/Group-61.png" class="brand-logo" alt="Brand 25">
+                            <!-- Duplicate for seamless loop -->
+                            <img src="../wp-content/uploads/2025/05/Group-59-1.png" class="brand-logo" alt="Brand 1">
+                            <img src="../wp-content/uploads/2025/05/Group-60-1.png" class="brand-logo" alt="Brand 2">
+                            <img src="../wp-content/uploads/2025/05/Group-62-1.png" class="brand-logo" alt="Brand 3">
+                            <img src="../wp-content/uploads/2025/05/Group-63-1.png" class="brand-logo" alt="Brand 4">
+                            <img src="../wp-content/uploads/2025/05/Group-65-1.png" class="brand-logo" alt="Brand 5">
+                            <img src="../wp-content/uploads/2025/05/Group-66-1.png" class="brand-logo" alt="Brand 6">
+                            <img src="../wp-content/uploads/2025/05/Group-68-1.png" class="brand-logo" alt="Brand 7">
+                            <img src="../wp-content/uploads/2025/05/Group-69-1.png" class="brand-logo" alt="Brand 8">
+                            <img src="../wp-content/uploads/2025/05/Group-70-1.png" class="brand-logo" alt="Brand 9">
+                            <img src="../wp-content/uploads/2025/05/Group-71-1.png" class="brand-logo" alt="Brand 10">
+                            <img src="../wp-content/uploads/2025/05/Group-73-1.png" class="brand-logo" alt="Brand 11">
+                            <img src="../wp-content/uploads/2025/05/Group-74-1.png" class="brand-logo" alt="Brand 12">
+                            <img src="../wp-content/uploads/2025/05/Group-75-1.png" class="brand-logo" alt="Brand 13">
+                            <img src="../wp-content/uploads/2025/05/Group-76-1.png" class="brand-logo" alt="Brand 14">
+                            <img src="../wp-content/uploads/2025/05/Group-78-1.png" class="brand-logo" alt="Brand 15">
+                            <img src="../wp-content/uploads/2025/05/Group-81-1.png" class="brand-logo" alt="Brand 16">
+                            <img src="../wp-content/uploads/2025/05/Group-82-1.png" class="brand-logo" alt="Brand 17">
+                            <img src="../wp-content/uploads/2025/05/Group-83-1.png" class="brand-logo" alt="Brand 18">
+                            <img src="../wp-content/uploads/2025/05/Group-85-1.png" class="brand-logo" alt="Brand 19">
+                            <img src="../wp-content/uploads/2025/05/Group-86-1.png" class="brand-logo" alt="Brand 20">
+                            <img src="../wp-content/uploads/2025/05/Group-84.png" class="brand-logo" alt="Brand 21">
+                            <img src="../wp-content/uploads/2025/05/Group-67.png" class="brand-logo" alt="Brand 22">
+                            <img src="../wp-content/uploads/2025/05/Group-72.png" class="brand-logo" alt="Brand 23">
+                            <img src="../wp-content/uploads/2025/05/Group-77.png" class="brand-logo" alt="Brand 24">
+                            <img src="../wp-content/uploads/2025/05/Group-61.png" class="brand-logo" alt="Brand 25">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Services Section -->
+    <section class="business-solution py-24 ">
+        <div class="brxe-container">
+            <div class="p-4 bg-gray-50/50">
+            <div class="text-center mb-16">
+                <p class="text-purple-600 font-bold tracking-widest uppercase text-sm mb-4">WHAT WE DO</p>
+                <h2 class="text-4xl md:text-5xl font-black">Your Perfect Business Solution</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 card-shadow hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center text-purple-600 mb-6">
+                        <i class="fas fa-mobile-screen-button text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Mobile App Development</h3>
+                    <p class="text-gray-500 mb-6 text-sm leading-relaxed">
+                        We build high-performance mobile applications for Android and iOS that provide seamless user experiences.
+                    </p>
+                    <div class="flex items-center space-x-3 text-gray-300">
+                        <i class="fab fa-apple text-xl"></i>
+                        <i class="fab fa-android text-xl"></i>
+                        <i class="fab fa-react text-xl"></i>
+                    </div>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 card-shadow hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-16 h-16 bg-pink-100 rounded-2xl flex items-center justify-center text-pink-600 mb-6">
+                        <i class="fas fa-laptop-code text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Website Designing</h3>
+                    <p class="text-gray-500 mb-6 text-sm leading-relaxed">
+                        Custom website designs that are not only visually stunning but also optimized for conversions and SEO.
+                    </p>
+                    <div class="flex items-center space-x-3 text-gray-300">
+                        <i class="fab fa-wordpress text-xl"></i>
+                        <i class="fab fa-shopify text-xl"></i>
+                        <i class="fab fa-elementor text-xl"></i>
+                    </div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 card-shadow hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600 mb-6">
+                        <i class="fas fa-cart-shopping text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">E-commerce Development</h3>
+                    <p class="text-gray-500 mb-6 text-sm leading-relaxed">
+                        Scale your online business with our powerful e-commerce solutions tailored for the GCC market.
+                    </p>
+                    <div class="flex items-center space-x-3 text-gray-300">
+                        <i class="fab fa-shopify text-xl"></i>
+                        <i class="fab fa-magento text-xl"></i>
+                        <i class="fab fa-wix text-xl"></i>
+                    </div>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 card-shadow hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6">
+                        <i class="fas fa-brain text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">ERP Development</h3>
+                    <p class="text-gray-500 mb-6 text-sm leading-relaxed">
+                        Streamline your business operations with custom ERP systems designed for efficiency and growth.
+                    </p>
+                    <div class="flex items-center space-x-3 text-gray-300">
+                        <i class="fas fa-database text-xl"></i>
+                        <i class="fas fa-server text-xl"></i>
+                        <i class="fas fa-network-wired text-xl"></i>
+                    </div>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 card-shadow hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center text-indigo-600 mb-6">
+                        <i class="fas fa-bullhorn text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Performance Marketing</h3>
+                    <p class="text-gray-500 mb-6 text-sm leading-relaxed">
+                        Drive measurable growth with data-driven marketing campaigns that maximize your ROI.
+                    </p>
+                    <div class="flex items-center space-x-3 text-gray-300">
+                        <i class="fab fa-google text-xl"></i>
+                        <i class="fab fa-facebook text-xl"></i>
+                        <i class="fab fa-instagram text-xl"></i>
+                    </div>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 card-shadow hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center text-yellow-600 mb-6">
+                        <i class="fas fa-mobile-button text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Mobile Optimization</h3>
+                    <p class="text-gray-500 mb-6 text-sm leading-relaxed">
+                        Ensure your website looks and performs perfectly on all mobile devices with our optimization services.
+                    </p>
+                    <div class="flex items-center space-x-3 text-gray-300">
+                        <i class="fas fa-bolt text-xl"></i>
+                        <i class="fas fa-gauge-high text-xl"></i>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="brxe-dytdzy" class="brxe-section">
+        <div id="brxe-byrjxa" class="brxe-container">
+            <div id="brxe-gwdvpc" class="brxe-block"><div id="brxe-lfgvar" class="brxe-block">
+                <h1 id="brxe-aohltv" class="brxe-heading hero-section__heading">We Are<br>Clicko Digital</h1>
+                <p id="brxe-bbvkjf" class="brxe-text-basic hero-section__description">We’re your all-in-one digital partner, specializing in building stunning websites, developing innovative apps, and designing marketing campaigns that drive results. Based in Dubai, we serve clients globally with a passion for innovation and a focus on your success.</p>
+                <div id="brxe-qevukg" class="brxe-div">
+                    <a id="brxe-annfxm" class="brxe-button bricks-button bricks-background-primary bricks-lightbox" href="https://www.youtube.com/watch?v=GE8YDTaQ9-A" data-pswp-width="1280" data-pswp-height="720" data-pswp-video-url="https://www.youtube.com/watch?v=GE8YDTaQ9-A"><i class="fas fa-play"></i></a>
+                    <a id="brxe-zkeybn" class="brxe-text-basic bricks-lightbox" href="https://www.youtube.com/watch?v=GE8YDTaQ9-A" data-pswp-width="1280" data-pswp-height="720" data-pswp-video-url="https://www.youtube.com/watch?v=GE8YDTaQ9-A">
+                        Watch the video to learn more about us.</a>
+                    </div>
+                </div>
+                <div id="brxe-ovhiqg" class="brxe-block">
+                    <img width="1024" height="676" src="../wp-content/uploads/2025/05/Group-3658-1024x676.png" class="brxe-image css-filter size-large" alt="" id="brxe-kjectn" decoding="async" fetchpriority="high" srcset="../wp-content/uploads/2025/05/Group-3658-1024x676.png 1024w, ../wp-content/uploads/2025/05/Group-3658-300x198.png 300w, ../wp-content/uploads/2025/05/Group-3658-768x507.png 768w, ../wp-content/uploads/2025/05/Group-3658-1536x1014.png 1536w, ../wp-content/uploads/2025/05/Group-3658.png 1549w" sizes="(max-width: 1024px) 100vw, 1024px" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow Section -->
+    <section class="py-24 bg-gray-50">
+        <div class="brxe-container">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black mb-4">Our Seamless Project Workflow</h2>
+                <p class="text-gray-500">Our collaborative and transparent process ensures we build for success from start to finish.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Step 1 -->
+                <div class="bg-gradient-to-br from-blue-500 to-purple-600 p-8 rounded-3xl text-white">
+                    <div class="text-3xl font-black mb-6 opacity-50">01</div>
+                    <h3 class="text-xl font-bold mb-4">Deep Understanding</h3>
+                    <p class="text-blue-50 text-sm leading-relaxed">We start by getting to know your business, your goals, and your target audience to ensure we build exactly what you need.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="bg-gradient-to-br from-purple-500 to-pink-500 p-8 rounded-3xl text-white">
+                    <div class="text-3xl font-black mb-6 opacity-50">02</div>
+                    <h3 class="text-xl font-bold mb-4">Strategic Planning</h3>
+                    <p class="text-pink-50 text-sm leading-relaxed">We create a detailed roadmap and strategy to ensure every aspect of your project is aligned with your business objectives.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="bg-dark-section p-8 rounded-3xl text-white border border-white/10">
+                    <div class="text-3xl font-black mb-6 opacity-50 text-gray-500">03</div>
+                    <h3 class="text-xl font-bold mb-4">Flawless Execution</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Our team of experts brings your vision to life with precision, using the latest technologies and industry best practices.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="bg-gradient-to-br from-purple-600 to-indigo-800 p-8 rounded-3xl text-white">
+                    <div class="text-3xl font-black mb-6 opacity-50">04</div>
+                    <h3 class="text-xl font-bold mb-4">Optimization & Grow</h3>
+                    <p class="text-indigo-50 text-sm leading-relaxed">We don't stop at launch. We continuously monitor and optimize your project to ensure long-term growth and success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="py-24">
+        <div class="brxe-container">
+            <div class="bg-gray-50 rounded-[50px] p-12 lg:p-20 overflow-hidden relative">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <p class="text-purple-600 font-bold uppercase tracking-widest text-sm mb-6">SOME OF OUR RECENT WORKS</p>
+                        <h2 class="text-4xl md:text-5xl font-black mb-8">Aleen Beauty - Shopify Website</h2>
+                        <div class="space-y-6 mb-10">
+                            <p class="text-gray-600 leading-relaxed">We helped the client transition from a restrictive custom CMS to a modern, easy-to-manage Shopify store. The outdated platform made updates difficult and limited scalability. By migrating to Shopify, we delivered a fresh design and a streamlined backend that empowers their team to manage everything without technical assistance.</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-center space-x-3 text-gray-700 font-medium">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>Migrated Entire Website From Custom CMS To Shopify</span>
+                                </li>
+                                <li class="flex items-center space-x-3 text-gray-700 font-medium">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>Created A Sleek, Mobile-First Design</span>
+                                </li>
+                                <li class="flex items-center space-x-3 text-gray-700 font-medium">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>mproved Site Speed And Performance</span>
+                                </li>
+                                <li class="flex items-center space-x-3 text-gray-700 font-medium">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>Enabled Easy Product And Content Management</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- <button class="bg-purple-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-purple-700 transition-all shadow-xl shadow-purple-200">
+                            View Case Study
+                        </button> -->
+                    </div>
+                    <div class="relative">
+                        <img src="../wp-content/uploads/2025/06/Group-370134434.png" alt="Aleen Beauty Project" class="rounded-3xl shadow-2xl w-full">
+                        <div class="absolute -top-10 -right-10 w-40 h-40 bg-pink-500/10 blur-[50px] rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-24 bg-gray-50">
+        <div class="brxe-container text-center">
+            <h2 class="text-4xl font-black mb-4">Meet The Clicko Digital Core Team</h2>
+            <p class="text-gray-500 mb-16">Dedicated experts focused on delivering innovation, expertise, and your success.</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Team Member 1 -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-[30px] mb-6 aspect-square">
+                        <img src="../wp-content/uploads/2024/08/AdobeStock_986323805-1.png" alt="Team Member" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end p-8">
+                            <div class="flex space-x-4 text-white">
+                                <a href="#" class="hover:text-purple-400"><i class="fab fa-linkedin-in text-xl"></i></a>
+                                <a href="#" class="hover:text-purple-400"><i class="fab fa-twitter text-xl"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold">Musa</h3>
+                    <p class="text-purple-600 font-medium">Project Manager</p>
+                </div>
+                <!-- Team Member 2 -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-[30px] mb-6 aspect-square">
+                        <img src="../wp-content/uploads/2024/08/AdobeStock_1282036665.png" alt="Team Member" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end p-8">
+                            <div class="flex space-x-4 text-white">
+                                <a href="#" class="hover:text-purple-400"><i class="fab fa-linkedin-in text-xl"></i></a>
+                                <a href="#" class="hover:text-purple-400"><i class="fab fa-twitter text-xl"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold">Ibrahim</h3>
+                    <p class="text-purple-600 font-medium">Creative Design Manager</p>
+                </div>
+                <!-- Team Member 3 -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-[30px] mb-6 aspect-square">
+                        <img src="../wp-content/uploads/2024/08/AdobeStock_1244244924.png" alt="Team Member" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end p-8">
+                            <div class="flex space-x-4 text-white">
+                                <a href="#" class="hover:text-purple-400"><i class="fab fa-linkedin-in text-xl"></i></a>
+                                <a href="#" class="hover:text-purple-400"><i class="fab fa-twitter text-xl"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold">Jara</h3>
+                    <p class="text-purple-600 font-medium">Developer Manager</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-4xl font-black mb-12 text-center">FAQs</h2>
+            <div class="space-y-4">
+                <div class="border border-gray-100 rounded-2xl p-6 hover:border-purple-200 transition-all cursor-pointer">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold">How long does a typical project take?</h3>
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </div>
+                </div>
+                <div class="border border-gray-100 rounded-2xl p-6 hover:border-purple-200 transition-all cursor-pointer">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold">What industries do you specialize in?</h3>
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </div>
+                </div>
+                <div class="border border-gray-100 rounded-2xl p-6 hover:border-purple-200 transition-all cursor-pointer">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold">Do you offer ongoing support?</h3>
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Contact Section -->
+    <section class="py-24 bg-dark-section text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-purple-600/5 blur-[100px] rounded-full"></div>
+        <div class="brxe-container relative z-10">
+            <div class="grid lg:grid-cols-2 gap-20">
+                <div>
+                    <p class="text-purple-400 font-bold uppercase tracking-widest text-sm mb-6">CONTACT US</p>
+                    <h2 class="text-4xl md:text-5xl font-black mb-10 leading-tight">Let's get in touch</h2>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start space-x-6">
+                            <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-purple-400 shrink-0">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 text-sm mb-1">Email us at</p>
+                                <a href="mailto:hello@clickodigital.com" class="text-xl font-bold hover:text-purple-400 transition-all">hello@clickodigital.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-6">
+                            <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-purple-400 shrink-0">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 text-sm mb-1">Call us at</p>
+                                <a href="tel:+971563551010" class="text-xl font-bold hover:text-purple-400 transition-all">+971 56 355 1010</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-6">
+                            <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-purple-400 shrink-0">
+                                <i class="fas fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 text-sm mb-1">Our Office</p>
+                                <p class="text-xl font-bold leading-relaxed">The Exchange Tower, Business Bay, Dubai, UAE</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center hover:bg-purple-600 transition-all"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center hover:bg-purple-600 transition-all"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center hover:bg-purple-600 transition-all"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center hover:bg-purple-600 transition-all"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-10 text-gray-900">
+                    <h3 class="text-2xl font-bold mb-8">Send us a message</h3>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold text-gray-700">Full Name</label>
+                                <input type="text" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold text-gray-700">Email Address</label>
+                                <input type="email" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all">
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-bold text-gray-700">Your Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-purple-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-purple-700 transition-all shadow-lg shadow-purple-100">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="mt-24 pt-10 border-t border-white/10 flex flex-col md:row justify-between items-center gap-6">
+                <img src="../wp-content/uploads/2024/11/header-logo-new.png" alt="Clicko Digital" class="h-8 brightness-0 invert opacity-50">
+                <p class="text-gray-500 text-sm">© 2026 Clicko Digital. All rights reserved.</p>
+                <div class="flex space-x-8 text-sm text-gray-500">
+                    <a href="#" class="hover:text-white transition-all">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-all">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Popup Overlay -->
+    <div id="video-popup-overlay">
+        <div class="video-popup-content">
+            <button class="video-popup-close">&times;</button>
+            <iframe id="video-iframe" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script src="../wp-includes/js/jquery/jquery.min%EF%B9%96ver=3.7.1.js" id="jquery-core-js"></script>
+    <script src="../wp-content/themes/bricks/assets/js/bricks.min%EF%B9%96ver=1753782317.js" id="bricks-scripts-js"></script>
+    <script src="../wp-content/themes/bricks/assets/js/libs/photoswipe.umd.min%EF%B9%96ver=5.4.4.js" id="bricks-photoswipe-js"></script>
+    <script src="../wp-content/themes/bricks/assets/js/libs/photoswipe-lightbox.umd.min%EF%B9%96ver=5.4.4.js" id="bricks-photoswipe-lightbox-js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const overlay = document.getElementById('video-popup-overlay');
+            const iframe = document.getElementById('video-iframe');
+            const closeBtn = document.querySelector('.video-popup-close');
+            const videoLinks = document.querySelectorAll('.bricks-lightbox');
+
+            videoLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const videoUrl = this.getAttribute('data-pswp-video-url') || this.getAttribute('href');
+                    let embedUrl = videoUrl;
+
+                    if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
+                        const videoId = videoUrl.includes('v=') ? videoUrl.split('v=')[1].split('&')[0] : videoUrl.split('/').pop();
+                        embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                    }
+
+                    iframe.src = embedUrl;
+                    overlay.style.display = 'flex';
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                });
+            });
+
+            function closePopup() {
+                overlay.style.display = 'none';
+                iframe.src = '';
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+
+            closeBtn.addEventListener('click', closePopup);
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) closePopup();
+            });
+        });
+    </script>
+
+</body>
+</html>
