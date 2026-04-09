@@ -19,6 +19,14 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        /* text clr */
+        .text-clr {
+            background: linear-gradient(269deg, #FA12E3 1.83%, #7612FA 53.68%, #12D0FA 100%);
+            color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
         /* Video Popup Styles */
         #video-popup-overlay {
             position: fixed;
@@ -228,8 +236,8 @@
             flex-shrink: 0;
             height: 1.25rem;
             width: 1.25rem;
-            color: #fd71af;
-            border-color: #fd71af;
+            color: #00a859;
+            border-color: #00a859;
             border-width: 1px;
             border-radius: 9999px; /* Full rounded for radio */
             transition: all 0.2s ease-in-out;
@@ -239,13 +247,13 @@
         }
         .form-radio:checked {
             background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 16 16" fill="%23fff" xmlns="http://www.w3.org/2000/svg"%3E%3Ccircle cx="8" cy="8" r="3"/%3E%3C/svg%3E');
-            background-color: #fd71af; /* Green-500 */
-            border-color: #fd71af;
+            background-color: #00a859; /* Green-500 */
+            border-color: #00a859;
         }
         .form-checkbox:checked {
             background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 16 16" fill="%23fff" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z"/%3E%3C/svg%3E');
-            background-color: #fd71af; /* Green-500 */
-            border-color: #fd71af;
+            background-color: #00a859; /* Green-500 */
+            border-color: #00a859;
             background-size: 100% 100%;
             background-position: center;
             background-repeat: no-repeat;
@@ -269,9 +277,9 @@
         /* get in touch Section Styles */
                 .bg-custom-dark { background-color: #052c21; }
         .bg-custom-green { background-color: #0b3d2e; }
-        .text-custom-green { color: #fd71af; }
-        .btn-green { background-color: #fd71af; transition: all 0.3s ease; }
-        .btn-green:hover { background-color: #fd71af; }
+        .text-custom-green { color: #28a745; }
+        .btn-green { background-color: #28a745; transition: all 0.3s ease; }
+        .btn-green:hover { background-color: #28a745; }
         
         /* Custom radio and checkbox styling */
         input[type="radio"], input[type="checkbox"] {
@@ -299,7 +307,7 @@
             height: 0.65em;
             transform: scale(0);
             transition: 120ms transform ease-in-out;
-            box-shadow: inset 1em 1em #fd71af;
+            box-shadow: inset 1em 1em #28a745;
             border-radius: 50%;
         }
 
@@ -312,7 +320,7 @@
         }
 
         input[type="radio"]:checked, input[type="checkbox"]:checked {
-            border-color: #fd71af;
+            border-color: #28a745;
         }
 
         .vertical-line {
@@ -421,7 +429,7 @@
             outline: none;
             transition: border-color 0.2s;
         }
-        .brxe-form input:focus, .brxe-form textarea:focus { border-color: #fd71af; }
+        .brxe-form input:focus, .brxe-form textarea:focus { border-color: #28a745; }
         .brxe-form textarea { height: 120px; resize: none; }
         .brxe-form .bricks-button {
             width: 100%;
@@ -442,7 +450,6 @@
     </style>
 </head>
 <body class="bg-white text-gray-900 overflow-x-hidden">
-
     <!-- Header -->
     <header class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md z-50 border-b border-gray-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 h-24 flex items-center justify-between">
@@ -452,7 +459,7 @@
                     <img src="../wp-content/uploads/2024/11/header-logo-new.png" alt="Clicko Digital" class="h-10">
                 </a>
                 <div class="h-8 w-px bg-gray-200"></div>
-                <img src="../wp-content/uploads/2025/04/shopify-partner-1.png" alt="Shopify Partners" class="h-8">
+                <img src="../wp-content/uploads/2025/04/shopify-partner-1.png" alt="Shopify Partners" class="hidden lg:block h-8">
             </div>
 
             <!-- Right Side: Promo & CTA -->
@@ -479,7 +486,7 @@
         </div>
     </header>
 
- <!-- Second Section -->
+    <!-- Hero Section -->
     <section class="relative overflow-hidden hero-bg py-24">
         <!-- Background Pattern -->
         <div class="absolute inset-0 bg-grid opacity-20 pointer-events-none"></div>
@@ -490,15 +497,15 @@
                 <!-- Left Content Side -->
                 <div class="flex-1 space-y-8">
                     <div class="space-y-4">
-                        <h2 class="text-2xl lg:text-3xl font-medium tracking-wide text-white">UAE's Award-Winning</h2>
+                        <h2 class="text-1xl lg:text-2xl font-medium tracking-wide text-white">SHOPIFY PARTNER IN DUBAI, UAE</h2>
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 border-2 border-green-500 flex items-center justify-center rounded-sm">
+                            <!-- <div class="w-12 h-12 border-2 border-green-500 flex items-center justify-center rounded-sm">
                                 <span class="text-green-500 font-bold text-2xl">[]</span>
-                            </div>
-                            <h1 class="text-5xl lg:text-7xl font-bold text-white">Digital Agency</h1>
+                            </div> -->
+                            <h1 class="text-3xl lg:text-4xl font-bold text-clr ">DShopify Development in Dubai for Fast-Growing UAE & GCC Brands</h1>
                         </div>
                         <p class="text-gray-400 text-lg lg:text-xl max-w-xl">
-                            Empower Your Business With A Website That Works!
+                            We design, build and scale high-performing Shopify and Shopify Plus stores for brands in Dubai, UAE and across the GCC. From new store builds and redesigns to B2B ecommerce, migrations and custom integrations, we help businesses grow with a Shopify store built for performance
                         </p>
                     </div>
 
@@ -509,7 +516,7 @@
                             <div class="mb-3 text-green-600">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
                             </div>
-                            <h3 class="text-gray-900 text-3xl font-bold">17+</h3>
+                            <h3 class="text-gray-900 text-3xl font-bold">12+</h3>
                             <p class="text-gray-500 font-medium text-sm">Years Of Expertise</p>
                         </div>
                         <!-- Stat Card 2 -->
@@ -517,24 +524,24 @@
                             <div class="mb-3 text-green-600">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                             </div>
-                            <h3 class="text-gray-900 text-3xl font-bold">1200+</h3>
-                            <p class="text-gray-500 font-medium text-sm">Global Client Base</p>
+                            <h3 class="text-gray-900 text-3xl font-bold">80+</h3>
+                            <p class="text-gray-500 font-medium text-sm">Ecommerce Projects</p>
                         </div>
                         <!-- Stat Card 3 -->
                         <div class="bg-white rounded-2xl p-6 flex flex-col items-center text-center shadow-lg transform transition hover:-translate-y-1">
                             <div class="mb-3 text-green-600">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-5c1.62-2.2 5-3 5-3"/><path d="M12 15v5s3.03-.55 5-2c2.2-1.62 3-5 3-5"/></svg>
                             </div>
-                            <h3 class="text-gray-900 text-3xl font-bold">150+</h3>
-                            <p class="text-gray-500 font-medium text-sm">Castlers</p>
+                            <h3 class="text-gray-900 text-3xl font-bold"></h3>
+                            <p class="text-gray-500 font-medium text-sm">Dubai Based Team</p>
                         </div>
                         <!-- Stat Card 4 -->
                         <div class="bg-white rounded-2xl p-6 flex flex-col items-center text-center shadow-lg transform transition hover:-translate-y-1">
                             <div class="mb-3 text-green-600">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                             </div>
-                            <h3 class="text-gray-900 text-3xl font-bold">2000+</h3>
-                            <p class="text-gray-500 font-medium text-sm">Successful Projects</p>
+                            <h3 class="text-gray-900 text-3xl font-bold"></h3>
+                            <p class="text-gray-500 font-medium text-sm">Shopify & Shopify Plus Experts</p>
                         </div>
                     </div>
                 </div>
@@ -543,7 +550,7 @@
                 <div class="w-full lg:w-[480px] bg-white rounded-[2.5rem] overflow-hidden shadow-2xl">
                     <!-- Form Header -->
                     <div class="bg-[#eef8f1] py-5 px-6 text-center border-b border-green-100">
-                        <h3 class="text-gray-800 text-xl font-bold">Let's Get Started Now</h3>
+                        <h3 class="text-gray-800 text-xl font-bold">Let’s Build Your Shopify Store</h3>
                     </div>
 
                     <form class="p-8 space-y-5" onsubmit="event.preventDefault();">
@@ -565,7 +572,7 @@
                         </div>
 
                         <div class="space-y-2">
-                            <label class="text-sm font-bold text-gray-700 block">What Service Are You Looking For?</label>
+                            <label class="text-sm font-bold text-gray-700 block">Project Type?</label>
                             <div class="relative">
                                 <select class="w-full appearance-none px-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-500 focus:outline-none focus:border-green-500 cursor-pointer">
                                     <option disabled selected>—Please Choose An Option—</option>
@@ -603,7 +610,7 @@
                         </div>
 
                         <button type="submit" class="w-full bg-gradient-to-r from-[#7136DA] to-[#FF0080] text-white font-bold py-4 rounded-full transition-all transform active:scale-95 uppercase tracking-wider text-sm shadow-lg shadow-green-500/20">
-                            Request A Call
+                            Get My Free Quote
                         </button>
 
                         <!-- Client Logos Section -->
@@ -701,18 +708,18 @@
             <div class="p-4 bg-gray-50/50">
             <div class="text-center mb-16">
                 <p class="text-purple-600 font-bold tracking-widest uppercase text-sm mb-4">WHAT WE DO</p>
-                <h2 class="text-4xl md:text-5xl font-black">Your Perfect Business Solution</h2>
+                <h2 class="text-4xl md:text-5xl font-black">Complete Shopify Development Services</h2>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service Card 1 -->
                 <div class="bg-white p-8 rounded-3xl border border-gray-100 card-shadow hover:-translate-y-2 transition-all duration-300">
                     <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center text-purple-600 mb-6">
-                        <i class="fas fa-mobile-screen-button text-2xl"></i>
+                        <i class="fas fa-store text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Mobile App Development</h3>
+                    <h3 class="text-xl font-bold mb-4">Shopify Store Design & Development</h3>
                     <p class="text-gray-500 mb-6 text-sm leading-relaxed">
-                        We build high-performance mobile applications for Android and iOS that provide seamless user experiences.
+                        Custom Shopify stores designed around your brand, products and conversion goals. We handle UX, UI design, theme development, checkout setup, shipping, payment gateways and launch.
                     </p>
                     <div class="flex items-center space-x-3 text-gray-300">
                         <i class="fab fa-apple text-xl"></i>
@@ -726,9 +733,9 @@
                     <div class="w-16 h-16 bg-pink-100 rounded-2xl flex items-center justify-center text-pink-600 mb-6">
                         <i class="fas fa-laptop-code text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Website Designing</h3>
+                    <h3 class="text-xl font-bold mb-4">Shopify Store Redesign</h3>
                     <p class="text-gray-500 mb-6 text-sm leading-relaxed">
-                        Custom website designs that are not only visually stunning but also optimized for conversions and SEO.
+                        Already have a Shopify store but it is outdated or underperforming? We redesign Shopify stores to improve conversion rate, mobile experience, speed and overall design quality.
                     </p>
                     <div class="flex items-center space-x-3 text-gray-300">
                         <i class="fab fa-wordpress text-xl"></i>
@@ -742,9 +749,9 @@
                     <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600 mb-6">
                         <i class="fas fa-cart-shopping text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">E-commerce Development</h3>
+                    <h3 class="text-xl font-bold mb-4">Shopify Plus & B2B Ecommerce</h3>
                     <p class="text-gray-500 mb-6 text-sm leading-relaxed">
-                        Scale your online business with our powerful e-commerce solutions tailored for the GCC market.
+                        Advanced Shopify Plus solutions for wholesale and enterprise brands including B2B portals, customer-specific pricing, restricted products, approval workflows and custom checkout experiences.
                     </p>
                     <div class="flex items-center space-x-3 text-gray-300">
                         <i class="fab fa-shopify text-xl"></i>
@@ -758,9 +765,9 @@
                     <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6">
                         <i class="fas fa-brain text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">ERP Development</h3>
+                    <h3 class="text-xl font-bold mb-4">Shopify Migration Services</h3>
                     <p class="text-gray-500 mb-6 text-sm leading-relaxed">
-                        Streamline your business operations with custom ERP systems designed for efficiency and growth.
+                        Move from WooCommerce, Magento, Salla, OpenCart or custom platforms to Shopify without losing products, customers, orders or SEO rankings.
                     </p>
                     <div class="flex items-center space-x-3 text-gray-300">
                         <i class="fas fa-database text-xl"></i>
@@ -774,9 +781,9 @@
                     <div class="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center text-indigo-600 mb-6">
                         <i class="fas fa-bullhorn text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Performance Marketing</h3>
+                    <h3 class="text-xl font-bold mb-4">Shopify ERP & System Integration</h3>
                     <p class="text-gray-500 mb-6 text-sm leading-relaxed">
-                        Drive measurable growth with data-driven marketing campaigns that maximize your ROI.
+                        Integrate Shopify with SAP Business One, Odoo, OMS, inventory systems, shipping providers, accounting software and custom portals.
                     </p>
                     <div class="flex items-center space-x-3 text-gray-300">
                         <i class="fab fa-google text-xl"></i>
@@ -788,11 +795,11 @@
                 <!-- Service Card 6 -->
                 <div class="bg-white p-8 rounded-3xl border border-gray-100 card-shadow hover:-translate-y-2 transition-all duration-300">
                     <div class="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center text-yellow-600 mb-6">
-                        <i class="fas fa-mobile-button text-2xl"></i>
+                        <i class="fas fa-headset text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Mobile Optimization</h3>
+                    <h3 class="text-xl font-bold mb-4">Shopify Support & Growth</h3>
                     <p class="text-gray-500 mb-6 text-sm leading-relaxed">
-                        Ensure your website looks and performs perfectly on all mobile devices with our optimization services.
+                        Monthly Shopify support, improvements, CRO, bug fixes, landing pages, new features and technical support after launch.
                     </p>
                     <div class="flex items-center space-x-3 text-gray-300">
                         <i class="fas fa-bolt text-xl"></i>
@@ -824,76 +831,131 @@
     </section>
 
     <!-- Workflow Section -->
-    <section class="py-24 bg-gray-50">
+    <section class="workflow__section py-24 bg-gray-50">
         <div class="brxe-container">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-black mb-4">Our Seamless Project Workflow</h2>
+                <h2 class="text-4xl font-black mb-4">Our Shopify Development Process</h2>
                 <p class="text-gray-500">Our collaborative and transparent process ensures we build for success from start to finish.</p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Step 1 -->
-                <div class="bg-gradient-to-br from-blue-500 to-purple-600 p-8 rounded-3xl text-white">
+            <div class="grid grid-cols-1 md:grid-cols-6 gap-6">
+                <div class="md:col-span-3 bg-gradient-to-br from-blue-500 to-purple-600 p-8 rounded-3xl text-white">
                     <div class="text-3xl font-black mb-6 opacity-50">01</div>
-                    <h3 class="text-xl font-bold mb-4">Deep Understanding</h3>
-                    <p class="text-blue-50 text-sm leading-relaxed">We start by getting to know your business, your goals, and your target audience to ensure we build exactly what you need.</p>
+                    <h3 class="text-xl font-bold mb-4">Discovery & Planning</h3>
+                    <p class="text-blue-50 text-sm leading-relaxed">We start by understanding your products, customers, business model and goals. Then we define the right Shopify solution.</p>
                 </div>
-                <!-- Step 2 -->
-                <div class="bg-gradient-to-br from-purple-500 to-pink-500 p-8 rounded-3xl text-white">
+                
+                <div class="md:col-span-3 bg-gradient-to-br from-purple-500 to-pink-500 p-8 rounded-3xl text-white">
                     <div class="text-3xl font-black mb-6 opacity-50">02</div>
-                    <h3 class="text-xl font-bold mb-4">Strategic Planning</h3>
-                    <p class="text-pink-50 text-sm leading-relaxed">We create a detailed roadmap and strategy to ensure every aspect of your project is aligned with your business objectives.</p>
+                    <h3 class="text-xl font-bold mb-4">UX, Structure & Wireframes</h3>
+                    <p class="text-pink-50 text-sm leading-relaxed">We plan the store structure, collections, user journey and conversion strategy before design begins.</p>
                 </div>
-                <!-- Step 3 -->
-                <div class="bg-dark-section p-8 rounded-3xl text-white border border-white/10">
+
+                <div class="md:col-span-2 bg-dark-section p-8 rounded-3xl text-white border border-white/10">
                     <div class="text-3xl font-black mb-6 opacity-50 text-gray-500">03</div>
-                    <h3 class="text-xl font-bold mb-4">Flawless Execution</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Our team of experts brings your vision to life with precision, using the latest technologies and industry best practices.</p>
+                    <h3 class="text-xl font-bold mb-4">Design & Development</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">We design and build the Shopify store, create custom sections, configure payments, shipping and any required integrations.</p>
                 </div>
-                <!-- Step 4 -->
-                <div class="bg-gradient-to-br from-purple-600 to-indigo-800 p-8 rounded-3xl text-white">
+
+                <div class="md:col-span-2 bg-gradient-to-br from-purple-600 to-indigo-800 p-8 rounded-3xl text-white">
                     <div class="text-3xl font-black mb-6 opacity-50">04</div>
-                    <h3 class="text-xl font-bold mb-4">Optimization & Grow</h3>
-                    <p class="text-indigo-50 text-sm leading-relaxed">We don't stop at launch. We continuously monitor and optimize your project to ensure long-term growth and success.</p>
+                    <h3 class="text-xl font-bold mb-4">Testing & Launch</h3>
+                    <p class="text-indigo-50 text-sm leading-relaxed">Before launch, we test the store across devices, browsers, checkout flow, forms and integrations.</p>
+                </div>
+
+                <div class="md:col-span-2 bg-gradient-to-br from-indigo-500 to-blue-700 p-8 rounded-3xl text-white">
+                    <div class="text-3xl font-black mb-6 opacity-50">05</div>
+                    <h3 class="text-xl font-bold mb-4">Ongoing Support</h3>
+                    <p class="text-indigo-50 text-sm leading-relaxed">After launch, we continue helping with updates, support, CRO, new features and marketing improvements.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section class="py-24">
+    <!-- Portfolio Section 1 -->
+    <section class="pt-24 pb-[20px]">
         <div class="brxe-container">
             <div class="bg-gray-50 rounded-[50px] p-12 lg:p-20 overflow-hidden relative">
                 <div class="grid lg:grid-cols-2 gap-16 items-center">
                     <div>
-                        <p class="text-purple-600 font-bold uppercase tracking-widest text-sm mb-6">SOME OF OUR RECENT WORKS</p>
-                        <h2 class="text-4xl md:text-5xl font-black mb-8">Aleen Beauty - Shopify Website</h2>
+                        <p class="text-purple-600 font-bold uppercase tracking-widest text-sm mb-6">Recent Shopify Projects We Delivered</p>
+                        <h2 class="text-4xl md:text-5xl font-black mb-8">Shopify Plus B2B Store with SAP Business One Integration</h2>
                         <div class="space-y-6 mb-10">
                             <p class="text-gray-600 leading-relaxed">
-                                We helped the client transition from a restrictive custom CMS to a modern, easy-to-manage Shopify store. The outdated platform made updates difficult and limited scalability. By migrating to Shopify, we delivered a fresh design and a streamlined backend that empowers their team to manage everything without technical assistance.
+                                We built a custom Shopify Plus B2B platform for a UAE-based distributor connected with SAP Business One. The project included
                             </p>
                             <ul class="space-y-3">
                                 <li class="flex items-center space-x-3 text-gray-700 font-medium">
                                     <i class="fas fa-check-circle text-green-500"></i>
-                                    <span>Migrated Entire Website From Custom CMS To Shopify</span>
+                                    <span>Customer approval workflow</span>
                                 </li>
                                 <li class="flex items-center space-x-3 text-gray-700 font-medium">
                                     <i class="fas fa-check-circle text-green-500"></i>
-                                    <span>Created A Sleek, Mobile-First Design</span>
+                                    <span>Company-based pricing and payment terms</span>
                                 </li>
                                 <li class="flex items-center space-x-3 text-gray-700 font-medium">
                                     <i class="fas fa-check-circle text-green-500"></i>
-                                    <span>mproved Site Speed And Performance</span>
+                                    <span>Product sync from SAP</span>
                                 </li>
                                 <li class="flex items-center space-x-3 text-gray-700 font-medium">
                                     <i class="fas fa-check-circle text-green-500"></i>
-                                    <span>Enabled Easy Product And Content Management</span>
+                                    <span>Multi-currency support</span>
+                                </li>
+                                <li class="flex items-center space-x-3 text-gray-700 font-medium">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>Custom portal and dashboard</span>
                                 </li>
                             </ul>
                         </div>
                         <!-- <button class="bg-purple-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-purple-700 transition-all shadow-xl shadow-purple-200">
                             View Case Study
                         </button> -->
+                        <p class="text-gray-600 leading-relaxed">
+                            Higher engagement, improved conversion rate and a more premium brand experience.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <img src="https://clickodigital.com/wp-content/uploads/2025/05/Group-3463-11.png" alt="Aleen Beauty Project" class="rounded-3xl shadow-2xl w-full">
+                        <div class="absolute -top-10 -right-10 w-40 h-40 bg-pink-500/10 blur-[50px] rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio Section  2-->
+    <section class="py-[20px]">
+        <div class="brxe-container">
+            <div class="bg-gray-50 rounded-[50px] p-12 lg:p-20 overflow-hidden relative">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <p class="text-purple-600 font-bold uppercase tracking-widest text-sm mb-6">Recent Shopify Projects We Delivered</p>
+                        <h2 class="text-4xl md:text-5xl font-black mb-8">Shopify Redesign for Luxury Retail Brand</h2>
+                        <div class="space-y-6 mb-10">
+                            <p class="text-gray-600 leading-relaxed">
+                                We redesigned an outdated Shopify store for a premium UAE retail brand. The new store included
+                            </p>
+                            <ul class="space-y-3">
+                                <li class="flex items-center space-x-3 text-gray-700 font-medium">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>Premium UX and branding</span>
+                                </li>
+                                <li class="flex items-center space-x-3 text-gray-700 font-medium">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>Faster mobile experience</span>
+                                </li>
+                                <li class="flex items-center space-x-3 text-gray-700 font-medium">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>Better collection and product pages</span>
+                                </li>
+                                <li class="flex items-center space-x-3 text-gray-700 font-medium">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>Improved conversion-focused layout</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">
+                            Higher engagement, improved conversion rate and a more premium brand experience.
+                        </p>
                     </div>
                     <div class="relative">
                         <img src="../wp-content/uploads/2025/06/Group-370134434.png" alt="Aleen Beauty Project" class="rounded-3xl shadow-2xl w-full">
@@ -903,6 +965,54 @@
             </div>
         </div>
     </section>
+
+    <!-- Portfolio Section  3-->
+    <section class="pb-24 pt-[20px]">
+        <div class="brxe-container">
+            <div class="bg-gray-50 rounded-[50px] p-12 lg:p-20 overflow-hidden relative">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <p class="text-purple-600 font-bold uppercase tracking-widest text-sm mb-6">Recent Shopify Projects We Delivered</p>
+                        <h2 class="text-4xl md:text-5xl font-black mb-8">Migration to Shopify from WooCommerce</h2>
+                        <div class="space-y-6 mb-10">
+                            <p class="text-gray-600 leading-relaxed">
+                                We migrated an ecommerce business from WooCommerce to Shopify including
+                            </p>
+                            <ul class="space-y-3">
+                                <li class="flex items-center space-x-3 text-gray-700 font-medium">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>Products and collections</span>
+                                </li>
+                                <li class="flex items-center space-x-3 text-gray-700 font-medium">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>Customers and orders</span>
+                                </li>
+                                <li class="flex items-center space-x-3 text-gray-700 font-medium">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>SEO URLs and redirects</span>
+                                </li>
+                                <li class="flex items-center space-x-3 text-gray-700 font-medium">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                    <span>Payment and shipping setup</span>
+                                </li>
+                            </ul>
+                             <p class="text-gray-600 leading-relaxed">
+                                The business moved to Shopify without downtime and saw better performance and easier store management.
+                            </p>
+                        </div>
+                        <!-- <button class="bg-purple-600 text-white px-8 py-4 rounded-2xl font-bold hover:bg-purple-700 transition-all shadow-xl shadow-purple-200">
+                            View Case Study
+                        </button> -->
+                    </div>
+                    <div class="relative">
+                        <img src="https://clickodigital.com/wp-content/uploads/2025/05/Group-3467-4-1.png" alt="Aleen Beauty Project" class="rounded-3xl  w-full">
+                        <div class="absolute -top-10 -right-10 w-40 h-40 bg-pink-500/10 blur-[50px] rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Our Client Section -->
      <section class="our-client pb-12 bg-white">
         <div class="brxe-container">
@@ -912,7 +1022,7 @@
                     <p class="text-green-600 font-bold uppercase tracking-widest text-sm mb-4">TESTIMONIAL</p>
                     <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-8 leading-tight">What Our Client Says</h2>
                     <p class="text-gray-600 text-lg leading-relaxed">
-                        With Over 15 Years Of Experience, We've Partnered With Top-Tier Businesses To Build Websites That Engage, Convert, And Thrive In Competitive Markets.
+                        With Over 12+ Years Of Experience, We've Partnered With Top-Tier Businesses To Build Websites That Engage, Convert, And Thrive In Competitive Markets.
                     </p>
                 </div>
                 <!-- Right Video -->
@@ -1011,7 +1121,7 @@
      </section>
 
      <!-- client logo section -->
-          <section class="py-20 px-4 max-w-7xl mx-auto">
+    <section class="py-20 px-4 max-w-7xl mx-auto">
         <!-- Header Section -->
         <div class="text-center mb-16">
             <h3 class="text-green-500 font-bold uppercase tracking-widest text-sm mb-4">Clients</h3>
@@ -1120,6 +1230,155 @@
                 <div class="grid-plus hidden md:block"></div>
             </div>
 
+        </div>
+    </section>
+
+
+    <!-- Industry Section -->
+    <section class="py-12 px-6 max-w-7xl mx-auto">
+        <h2 id="brxe-ad3f5d" class="brxe-heading section-heading review-section__section-heading mb-12">Industry We Serve</h2>
+        <div class="grid lg:grid-cols-2 gap-16 items-start">
+            
+            <!-- LEFT COLUMN: Industries We Serve -->
+            <div class="space-y-10">
+                <div>
+                    <span class="text-indigo-600 font-semibold tracking-wider uppercase text-sm mb-3 block">Expertise Areas</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-6 tracking-tight leading-tight">
+                        Industries We Serve in <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">UAE & GCC</span>
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed max-w-md">
+                        We build Shopify stores for a wide range of industries, ensuring your brand stands out in the competitive Middle Eastern market.
+                    </p>
+                </div>
+
+                <!-- Compact Industry Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="flex items-center gap-3 p-4 bg-white border border-slate-200 rounded-xl hover:border-indigo-500 hover:shadow-lg transition-all">
+                        <div class="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                        </div>
+                        <span class="font-bold text-sm text-slate-700 uppercase tracking-tight">Fashion & Apparel</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-4 bg-white border border-slate-200 rounded-xl hover:border-indigo-500 hover:shadow-lg transition-all">
+                        <div class="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                        </div>
+                        <span class="font-bold text-sm text-slate-700 uppercase tracking-tight">Beauty & Cosmetics</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-4 bg-white border border-slate-200 rounded-xl hover:border-indigo-500 hover:shadow-lg transition-all">
+                        <div class="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                        </div>
+                        <span class="font-bold text-sm text-slate-700 uppercase tracking-tight">Food & Beverage</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-4 bg-white border border-slate-200 rounded-xl hover:border-indigo-500 hover:shadow-lg transition-all">
+                        <div class="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                        </div>
+                        <span class="font-bold text-sm text-slate-700 uppercase tracking-tight">Electronics</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-4 bg-white border border-slate-200 rounded-xl hover:border-indigo-500 hover:shadow-lg transition-all">
+                        <div class="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                        </div>
+                        <span class="font-bold text-sm text-slate-700 uppercase tracking-tight">Furniture & Home</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-4 bg-white border border-slate-200 rounded-xl hover:border-indigo-500 hover:shadow-lg transition-all">
+                        <div class="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                        </div>
+                        <span class="font-bold text-sm text-slate-700 uppercase tracking-tight">Wholesale & B2B</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-4 bg-white border border-slate-200 rounded-xl hover:border-indigo-500 hover:shadow-lg transition-all">
+                        <div class="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                        </div>
+                        <span class="font-bold text-sm text-slate-700 uppercase tracking-tight">Luxury & Lifestyle</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-4 bg-white border border-slate-200 rounded-xl hover:border-indigo-500 hover:shadow-lg transition-all">
+                        <div class="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600 shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                        </div>
+                        <span class="font-bold text-sm text-slate-700 uppercase tracking-tight">Health & Wellness</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex gap-4 items-center">
+                    <div class="w-12 h-12 rounded-full bg-indigo-600 flex items-center justify-center text-white shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <p class="text-sm font-medium text-slate-700">Whether you're starting fresh or scaling, we build the right solution.</p>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Services & Specific Content from Image -->
+            <div class="bg-white rounded-[2.5rem] p-8 md:p-12 border border-slate-200 shadow-xl shadow-slate-200/50">
+                <div class="mb-10">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs font-bold uppercase tracking-widest mb-6">
+                        Shopify Development Company
+                    </span>
+                    <h2 class="text-3xl font-bold mb-6 leading-tight">
+                        Shopify Experts in <span class="text-indigo-600">Dubai, UAE</span>
+                    </h2>
+                    <p class="text-slate-600 text-sm md:text-base leading-relaxed mb-6">
+                        We help UAE businesses connect Shopify with existing systems including <span class="text-slate-900 font-bold">SAP Business One, Odoo</span>, inventory systems, accounting software and custom portals.
+                    </p>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6">
+                        <!-- Items from Image -->
+                        <div class="flex items-center gap-3 text-sm font-semibold text-slate-700">
+                            <div class="w-1.5 h-1.5 rounded-full bg-indigo-500"></div>
+                            Shopify store setup
+                        </div>
+                        <div class="flex items-center gap-3 text-sm font-semibold text-slate-700">
+                            <div class="w-1.5 h-1.5 rounded-full bg-indigo-500"></div>
+                            Custom theme development
+                        </div>
+                        <div class="flex items-center gap-3 text-sm font-semibold text-slate-700">
+                            <div class="w-1.5 h-1.5 rounded-full bg-indigo-500"></div>
+                            Shopify Plus development
+                        </div>
+                        <div class="flex items-center gap-3 text-sm font-semibold text-slate-700">
+                            <div class="w-1.5 h-1.5 rounded-full bg-indigo-500"></div>
+                            Store redesign
+                        </div>
+                        <div class="flex items-center gap-3 text-sm font-semibold text-slate-700">
+                            <div class="w-1.5 h-1.5 rounded-full bg-indigo-500"></div>
+                            Store migration
+                        </div>
+                        <div class="flex items-center gap-3 text-sm font-semibold text-slate-700">
+                            <div class="w-1.5 h-1.5 rounded-full bg-indigo-500"></div>
+                            B2B ecommerce
+                        </div>
+                        <div class="flex items-center gap-3 text-sm font-semibold text-slate-700">
+                            <div class="w-1.5 h-1.5 rounded-full bg-indigo-500"></div>
+                            ERP integration
+                        </div>
+                        <div class="flex items-center gap-3 text-sm font-semibold text-slate-700">
+                            <div class="w-1.5 h-1.5 rounded-full bg-indigo-500"></div>
+                            Payment gateway setup
+                        </div>
+                        <div class="flex items-center gap-3 text-sm font-semibold text-slate-700">
+                            <div class="w-1.5 h-1.5 rounded-full bg-indigo-500"></div>
+                            Shipping setup
+                        </div>
+                        <div class="flex items-center gap-3 text-sm font-semibold text-slate-700">
+                            <div class="w-1.5 h-1.5 rounded-full bg-indigo-500"></div>
+                            Multi-lang & Multi-currency
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                        <h4 class="text-indigo-600 font-extrabold text-xs uppercase tracking-widest mb-3">Enterprise Wholesale & B2B</h4>
+                        <p class="text-sm text-slate-600 leading-relaxed italic">
+                            We build advanced <span class="font-bold text-slate-900">Shopify Plus</span> solutions with customer-specific pricing, approval workflows, restricted products and custom ordering systems.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1514,7 +1773,7 @@
             </div>
     </section>
     <!-- Footer Contact Section -->
-    <footer class="bg-[#1a1a1a] text-gray-400 py-12 px-6 md:px-12 lg:px-24 border-t border-gray-800">
+    <footer class="bg-[#fafafa] text-gray-400 py-12 px-6 md:px-12 lg:px-24 border-t border-gray-800">
         <div class="max-w-7xl mx-auto">
             
             <!-- Top Section: Logo and Contact Info -->
@@ -1533,31 +1792,20 @@
                 <!-- Contact Info Grid -->
                 <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
                     <!-- UAE -->
-                    <div class="space-y-2">
+                    <div class="space-y-4">
                         <h4 class="text-[#00a859] font-semibold text-sm">UAE</h4>
-                        <p class="text-sm hover:text-white transition-colors cursor-pointer">mail@webcastle.ae</p>
-                        <p class="text-sm">+971 45540033</p>
+                        <p class="text-sm hover:text-white transition-colors cursor-pointer">hello@clickodigital.com</p>
+                        <a href="https://wa.me/971505394748" target="_blank" class="hover:text-[#00a859] transition-colors cursor-pointer-sm">+971 50 539 4748 (Whatsapp)</a>
                     </div>
-
-                    <!-- KSA -->
-                    <div class="space-y-2">
-                        <h4 class="text-[#00a859] font-semibold text-sm">KSA</h4>
-                        <p class="text-sm hover:text-white transition-colors cursor-pointer">mail@webcastle.sa</p>
-                        <p class="text-sm">+966 535319150</p>
-                    </div>
-
                     <!-- USA -->
-                    <div class="space-y-2">
+                    <div class="space-y-4">
                         <h4 class="text-[#00a859] font-semibold text-sm">USA</h4>
-                        <p class="text-sm hover:text-white transition-colors cursor-pointer">mail@webcastle.com</p>
-                        <p class="text-sm">+2403473649</p>
+                        <p class="text-sm hover:text-white transition-colors cursor-pointer">hello@clickodigital.com</p>
+                         <a href="https://wa.me/971505394748" target="_blank" class="hover:text-[#00a859] transition-colors cursor-pointer-sm">+971 50 539 4748 (Whatsapp)</a>
                     </div>
-
-                    <!-- India -->
-                    <div class="space-y-2">
-                        <h4 class="text-[#00a859] font-semibold text-sm">India</h4>
-                        <p class="text-sm hover:text-white transition-colors cursor-pointer">mail@webcastle.in</p>
-                        <p class="text-sm">+91 4844052626</p>
+                    <div class="space-y-4">
+                        <h4 class="text-[#00a859] font-semibold text-sm">Contact</h4>
+                        <p class="text-sm">Unit 2003-2, 20th Floor, The Exchange Tower, Business Bay, Dubai, UAE</p>
                     </div>
                 </div>
             </div>
@@ -1568,12 +1816,10 @@
             <!-- Middle Section: Navigation -->
             <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 space-y-4 md:space-y-0">
                 <div class="flex flex-wrap items-center gap-x-8 gap-y-4">
-                    <span class="text-white font-bold text-sm tracking-widest uppercase">Company :</span>
-                    <a href="#" class="text-sm hover:text-white transition-colors">About</a>
-                    <a href="#" class="text-sm hover:text-white transition-colors">Portfolio</a>
-                    <a href="#" class="text-sm hover:text-white transition-colors">Testimonials</a>
-                    <a href="#" class="text-sm hover:text-white transition-colors">Contact Us</a>
-                    <a href="#" class="text-sm hover:text-white transition-colors">FAQs</a>
+                    <span class="text-[#00a859] font-bold text-sm tracking-widest uppercase">Company :</span>
+                    <a href="https://clickodigital.com/about-us/" target="_blank" class="text-sm hover:text-black transition-colors">About</a>
+                    <a href="https://clickodigital.com/portfolio/" target="_blank" class="text-sm hover:text-black transition-colors">Portfolio</a>
+                    <a href="https://clickodigital.com/contact-us/" target="_blank" class="text-sm hover:text-black transition-colors">Contact Us</a>
                 </div>
             </div>
 
@@ -1583,7 +1829,7 @@
             <!-- Bottom Section: Copyright and Legal -->
             <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium">
                 <div class="text-gray-500">
-                    2026 @WebCastle. All Right Reserved.
+                    2026 Clicko Digital. All Right Reserved.
                 </div>
                 <div class="flex items-center gap-8">
                     <a href="#" class="text-gray-500 hover:text-white transition-colors">Privacy</a>
